@@ -1,3 +1,4 @@
+/Users/marielaquintanar/Desktop/LibraryManagement/src/main/java/com/example/library/config/WebConfig.java
 /Users/marielaquintanar/Desktop/LibraryManagement/src/main/java/com/example/library/controller/BookController.java
 /Users/marielaquintanar/Desktop/LibraryManagement/src/main/java/com/example/library/controller/AuthController.java
 /Users/marielaquintanar/Desktop/LibraryManagement/src/main/java/com/example/library/config/SwaggerConfig.java
@@ -7,6 +8,7 @@
 /Users/marielaquintanar/Desktop/LibraryManagement/src/main/java/com/example/library/model/Book.java
 /Users/marielaquintanar/Desktop/LibraryManagement/src/main/java/com/example/library/security/SecurityConfig.java
 /Users/marielaquintanar/Desktop/LibraryManagement/src/main/java/com/example/library/LibraryApplication.java
+/Users/marielaquintanar/Desktop/LibraryManagement/src/main/java/com/example/library/security/RequiredArgsConstructor.java
 /Users/marielaquintanar/Desktop/LibraryManagement/src/main/java/com/example/library/security/JwtService.java
 /Users/marielaquintanar/Desktop/LibraryManagement/src/main/java/com/example/library/controller/PatronController.java
 /Users/marielaquintanar/Desktop/LibraryManagement/src/main/java/com/example/library/model/User.java
