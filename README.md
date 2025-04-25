@@ -42,21 +42,9 @@ http://localhost:8080/api/books/1
 
 # **🚀 Documentación Swagger**  
 La API cuenta con documentación interactiva generada por Swagger.  
-Puedes consultarla en:
+Puedes consultarla en:<img width="1469" alt="Screenshot 2025-04-24 at 10 49 51 p m" src="https://github.com/user-attachments/assets/c8147ab7-1664-4752-9621-9a354ca1a314" />
 
-```bash
 http://localhost:8080/swagger-ui/index.html
-```
-o
-```bash
-http://localhost:8080/swagger-ui.html
-```
-
-En Swagger podrás:
-
-- Ver todos los endpoints disponibles 🧩  
-- Probarlos directamente desde el navegador 🧪  
-- Consultar los parámetros y respuestas esperadas 📘  
 
 # **🆕 Nuevas Funcionalidades en esta Versión**  
 
@@ -69,6 +57,19 @@ En Swagger podrás:
 - Se integró Swagger en la aplicación Spring Boot.  
 - Todos los endpoints están documentados con anotaciones Swagger.
 
----
+  
+# **🆕 Evidencias **  
 
-¿Quieres que le dé también formato con Markdown completo o que lo pase a otro formato como PDF o HTML?
+Generación de token por autenticación:  
+
+<img width="1469" alt="Screenshot 2025-04-24 at 10 49 51 p m" src="https://github.com/user-attachments/assets/c8147ab7-1664-4752-9621-9a354ca1a314" />
+
+Uso de token para endpoints: 
+
+<img width="1469" alt="Screenshot 2025-04-24 at 10 55 52 p m" src="https://github.com/user-attachments/assets/7c799693-c760-4926-8a43-68b44db35461" />
+
+<img width="1469" alt="Screenshot 2025-04-24 at 10 56 06 p m" src="https://github.com/user-attachments/assets/d1c4dc7b-e1b8-4032-beef-dd1a5a3999ab" />
+
+Swagger Documentation:
+
+<img width="1469" alt="Screenshot 2025-04-24 at 10 56 59 p m" src="https://github.com/user-attachments/assets/43da77ff-be24-4efe-a090-ec85a37ab6da" />
