@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    container_name: spring_library
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./src/main/resources/Wallet_Library:/app/Wallet_Library
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:oracle:thin:@library_high?TNS_ADMIN=/app/Wallet_Library
+      SPRING_DATASOURCE_USERNAME: admin
+      SPRING_DATASOURCE_PASSWORD: Library123456
+      SPRING_DATASOURCE_DRIVER_CLASS_NAME: oracle.jdbc.OracleDriver
+      SPRING_JPA_HIBERNATE_DDL_AUTO: validate
+      SPRING_JPA_SHOW_SQL: "true"
+      SPRING_JPA_PROPERTIES_HIBERNATE_DIALECT: org.hibernate.dialect.OracleDialect

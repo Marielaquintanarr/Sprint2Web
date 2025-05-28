@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.library.model.Book;
-import com.example.library.repository.BookRepository;
+import com.example.library.services.BookService;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -28,7 +28,7 @@ import io.swagger.annotations.ApiResponses;
 public class BookController {
 
     @Autowired
-    private BookRepository bookRepository;
+    private BookService bookService;
 
     @ApiOperation(value = "Obtener todos los libros", notes = "Regresa todos los libros")
     @ApiResponses(value = {
@@ -36,7 +36,7 @@ public class BookController {
     })
     @GetMapping
     public List<Book> getAllBooks() {
-        return bookRepository.findAll();
+        return bookService.getAllBooks();
     }
 
     @ApiOperation(value = "Obtener un libro por su ID", notes = "Proporciona el ID de un libro para obtener sus detalles")
@@ -48,7 +48,7 @@ public class BookController {
     public ResponseEntity<Book> getBookById(
             @ApiParam(value = "ID del libro a consultar", required = true)
             @PathVariable Long id) {
-        return bookRepository.findById(id)
+        return bookService.getBookById(id)
                 .map(book -> ResponseEntity.ok().body(book))
                 .orElse(ResponseEntity.notFound().build());
     }
@@ -61,7 +61,7 @@ public class BookController {
     public Book createBook(
             @ApiParam(value = "Objeto libro que se desea registrar", required = true)
             @RequestBody Book book) {
-        return bookRepository.save(book);
+        return bookService.createBook(book);
     }
 
     @ApiOperation(value = "Actualizar un libro", notes = "Actualiza los detalles de un libro con su ID")
@@ -75,17 +75,8 @@ public class BookController {
             @PathVariable Long id,
             @ApiParam(value = "Nuevos datos del libro", required = true)
             @RequestBody Book bookDetails) {
-        return bookRepository.findById(id)
-                .map(book -> {
-                    book.setTitle(bookDetails.getTitle());
-                    book.setAuthor(bookDetails.getAuthor());
-                    book.setIsbn(bookDetails.getIsbn());
-                    book.setPublicationYear(bookDetails.getPublicationYear());
-                    book.setGenre(bookDetails.getGenre());
-                    book.setPages(bookDetails.getPages());
-                    Book updatedBook = bookRepository.save(book);
-                    return ResponseEntity.ok(updatedBook);
-                })
+        return bookService.updateBook(id, bookDetails)
+                .map(updatedBook -> ResponseEntity.ok(updatedBook))
                 .orElse(ResponseEntity.notFound().build());
     }
 
@@ -98,11 +89,7 @@ public class BookController {
     public ResponseEntity<Void> deleteBook(
             @ApiParam(value = "ID del libro a eliminar", required = true)
             @PathVariable Long id) {
-        return bookRepository.findById(id)
-                .map(book -> {
-                    bookRepository.delete(book);
-                    return ResponseEntity.noContent().<Void>build();
-                })
-                .orElse(ResponseEntity.notFound().build());
+        boolean deleted = bookService.deleteBook(id);
+        return deleted ? ResponseEntity.noContent().build() : ResponseEntity.notFound().build();
     }
 }

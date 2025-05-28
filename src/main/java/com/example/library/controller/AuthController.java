@@ -1,6 +1,7 @@
 package com.example.library.controller;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,6 +15,7 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 
+@CrossOrigin(origins = "http://localhost:3000") // 👈 Correctamente a nivel de clase
 @RestController
 @RequestMapping("/api/auth")
 @Api(value = "API de Autenticación", description = "Autenticación de usuarios")
@@ -32,7 +34,7 @@ public class AuthController {
         @ApiResponse(code = 200, message = "Inicio de sesión exitoso"),
         @ApiResponse(code = 401, message = "Credenciales inválidas")
     })
-    @PostMapping("/login")
+    @PostMapping("/login") // 👈 Esto ya está bien
     public ResponseEntity<?> login(@RequestBody User user) {
         System.out.println("Username: " + user.getUsername());
         System.out.println("Password: " + user.getPassword());
