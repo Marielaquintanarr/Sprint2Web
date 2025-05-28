@@ -57,7 +57,7 @@ public class BookController {
     @ApiResponses(value = {
         @ApiResponse(code = 200, message = "Libro creado correctamente")
     })
-    @PostMapping
+    @PostMapping("/createbook")
     public Book createBook(
             @ApiParam(value = "Objeto libro que se desea registrar", required = true)
             @RequestBody Book book) {

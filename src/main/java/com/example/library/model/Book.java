@@ -1,10 +1,14 @@
 package com.example.library.model;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
-import java.sql.Timestamp;
 
 @Entity
 @Table(name = "books") // This specifies the table name in the database
@@ -97,5 +101,4 @@ public class Book {
         this.pages = pages;
     }
 
-    // createdAt does not need a setter because it's auto-generated
 }
